@@ -14,7 +14,7 @@
     <div class="wrapper">
 
         <header class="main-header">
-            <nav class="navbar navbar-default fixed-top justify-content-start">
+            <nav class="navbar navbar-default fixed-top" style="display: block;">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="menu-text" style="font-family: Arial; font-weight:bold; margin-left:5px"></span>
@@ -29,8 +29,8 @@
                     </a>
                 </div>
 
-                <div class="navbar-custom-menu">
-                    <a href="@Url.Action("LogOut","Login")" style="color: white;"><span>Cerrar Session </span><i class="fas fa-sign-out-alt"></i></a>
+                <div class="navbar-custom-menu" style="margin: 15px;">
+                    <a href="@Url.Action("LogOut","Login")" style="color: white;"><span>Cerrar sesión </span><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </nav>
 
