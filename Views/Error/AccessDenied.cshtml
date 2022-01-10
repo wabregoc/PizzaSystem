@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Acceso Denegado</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="jumbotron">
+    <div class="container text-center">
+        <div class="col-lg-offset-10"></div>
+        <div class="col-lg-12">
+            <br />
+            <h1><b>Acceso Denegado</b></h1>
+            <br />
+            <h2>
+                Lo sentimos, no tienes acceso a este módulo.
+                <br />
+                <br />
+                Por favor contacta al Departamento de IT
+            </h2>
+            <br />
+            <h1>
+                <small>
+                    <a href="@Url.Action("LogOut", "Login")" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-home icon-go-home">
+                            <strong>Regresar</strong>
+                        </span>
+                    </a>
+                </small>
+            </h1>     
+
+            <img src="~/Images/IT.PNG" alt="IT Department" />
+        </div>
+    </div>
+</body>
+</html>
+

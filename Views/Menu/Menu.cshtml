@@ -1,0 +1,31 @@
+﻿<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="image">
+            @{
+                string imagePic = Url.Content("~/Images/no_user.png");
+
+                <img src="@imagePic" class="img-fluid rounded-circle" data-toggle="tooltip" data-placement="bottom" style="width: 100% !important;">
+            }
+        </div>
+        <div class="info">
+            <p class="info-menu-user-title">@ViewBag.infoUser.Nombre @ViewBag.infoUser.Apellido</p>
+            <p class="info-menu-user">@ViewBag.infoUser.UserName</p>
+        </div>
+    </div>
+
+    <ul class="sidebar-menu" data-widget="tree" style="padding-top:15px">
+        <li>
+            <a href="@Url.Action("Index","Ordenes")" class="font-menu"><i class="far fa-list-alt icon-font"></i> <span>Ordenes</span> </a>
+        </li>
+        @if (ViewBag.Administrador)
+        {
+            <li>
+                <a href="@Url.Action("Index","CatalogoPizzas")" class="font-menu"><i class="fas fa-pizza-slice icon-font"></i> <span>Catalogo de pizzas</span> </a>
+            </li>
+
+        }
+
+    </ul>
+</section>
+

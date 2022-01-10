@@ -1,0 +1,109 @@
+﻿@model PizzaSystem.Models.CatalogoPizza
+
+@if (Model.IdCatalogoPizza == 0)
+{
+    <div class="modal fade" id="modal-add-catalogo-pizza" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title card-title" id="exampleModalLabel" style="color:white">Agregar Catalogo de Pizza</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-add-catalogo-pizza" enctype="multipart/form-data" autocomplete="off">
+                    <div class="modal-body modal-custom">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Nombre del Producto:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NombreProducto" id="NombreProducto" placeholder="Nombre del Producto" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Cantidad de Porciones:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" min="1" name="CantidadPorciones" id="CantidadPorciones" placeholder="Cantidad de Porciones" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Descripcion del Producto:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="DescripcionProducto" id="DescripcionProducto" placeholder="Descripcion del Producto" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Precio por Unidad:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" step=".01" name="PrecioUnidad" id="PrecioUnidad" placeholder="Precio por Unidad" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Tamaño:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="Tamano" id="Tamano" placeholder="Tamaño" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="modal fade" id="modal-edit-catalogo-pizza" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title card-title" id="exampleModalLabel" style="color:white">Editar Catalogo de Pizza</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-edit-catalogo-pizza" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" name="IdCatalogoPizza" value="@Model.IdCatalogoPizza" />
+                    <div class="modal-body modal-custom">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Nombre del Producto:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NombreProducto" id="NombreProducto" placeholder="Nombre del Producto" value="@Model.NombreProducto" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Cantidad de Porciones:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" min="1" name="CantidadPorciones" id="CantidadPorciones" placeholder="Cantidad de Porciones" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="@Model.CantidadPorciones" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Descripcion del Producto:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="DescripcionProducto" id="DescripcionProducto" placeholder="Descripcion del Producto" required>@Model.DescripcionProducto</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Precio por Unidad:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" step=".01" name="PrecioUnidad" id="PrecioUnidad" placeholder="Precio por Unidad" value="@Model.PrecioUnidad" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Tamaño:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="Tamano" id="Tamano" placeholder="Tamaño" value="@Model.Tamano" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

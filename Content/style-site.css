@@ -1,0 +1,640 @@
+﻿.content-wrapper {
+    /*padding-bottom: 7vh;*/
+}
+/* DISABLE BUTTONS */
+
+.disable-btn {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.excelButton {
+    margin-left: 15px !important;
+    background-color: #4CB050 !important;
+    border-color: #4CB050 !important;
+    color: white !important;
+}
+
+    .excelButton:hover,
+    .excelButton:active,
+    .excelButton.hover {
+        background-color: #5eb661 !important;
+        border-color: #5eb661 !important;
+    }
+/*
+    HOME
+*/
+.green-deg-1 {
+    background-color: rgba(76, 176, 80, 0.7) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.green-deg-2 {
+    background-color: rgba(130, 200, 133, 0.6) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.green-deg-3 {
+    background-color: rgba(201, 229, 201, 0.45) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.orange-deg-1 {
+    background-color: #fcb74f !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.orange-deg-2 {
+    background-color: rgba(252, 183, 79, 0.5) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.orange-deg-3 {
+    background-color: rgba(255, 223, 178, 0.6) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.red-deg-1 {
+    background-color: #f26d61 !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.red-deg-2 {
+    background-color: rgba(242, 109, 97, 0.63) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.red-deg-3 {
+    background-color: rgba(250, 190, 187, 0.7) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.purple-deg-1 {
+    background-color: rgba(173, 108, 173, 0.8) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.purple-deg-2 {
+    background-color: rgba(173, 108, 173, 0.47) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.purple-deg-3 {
+    background-color: rgba(221, 190, 219, 0.56) !important;
+    border-color: transparent !important;
+    color: black !important;
+}
+
+.card-title-home {
+    color: black;
+    font-size: 25px;
+    padding-bottom: 15px !important;
+    text-align: center;
+}
+
+.attritionColor {
+    background-color: rgba(0, 192, 239, 0.12) !important;
+}
+
+.box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.comment-color {
+    color: #00c0ef !important;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.StudentNameCol {
+    min-width: 250px !important;
+}
+/*
+    MARGENES Y PADDING
+*/
+.no-margin {
+    margin: 0px !important;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.form-control {
+    font-size: 15px !important;
+}
+
+.input-group-text {
+    font-size: 15px !important;
+}
+
+.no-padding {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.vertical-align {
+    vertical-align: middle !important;
+}
+
+.no-padding-left {
+    padding-left: 0px !important;
+}
+
+.no-padding-right {
+    padding-right: 0px !important;
+}
+
+.no-padding-top {
+    padding-top: 0px;
+}
+
+.coments-padding {
+    padding: 1px 7px !important;
+}
+
+.m-card {
+    margin-top: 1.5rem !important;
+}
+
+.semester-padding {
+    padding-left: 42px
+}
+
+.cascade-margin {
+    margin: 80px 150px !important;
+    padding: 50px 30px;
+    background-color: white;
+    border-radius: 0.25rem;
+    background-clip: border-box;
+}
+
+
+/*
+    CARDS
+*/
+.card-header-custom {
+    flex: 1 1 auto;
+    padding: 5px 20px;
+}
+
+.card-margin {
+    margin: 0px 30px 0px 30px;
+}
+
+.align-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin-deck {
+    margin: 20px !important;
+    width: 98%;
+}
+
+.no-border {
+    border: 0px solid rgba(0, 0, 0, 0.125) !important;
+}
+
+.img-card {
+    width: 200px;
+}
+
+.card-text {
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    line-height: 30px;
+}
+/*
+    SIDEBAR
+*/
+.icon-font {
+    font-size: 20px;
+}
+
+/*
+    BREADCRUMB
+*/
+.breadcrumb {
+    background-color: #f9f9f9 !important;
+}
+
+/*
+    TABS
+*/
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #58c1ee !important;
+    font-weight: bold;
+    background-color: #fff;
+    border-color: #58c1ee #58c1ee #fff !important;
+}
+
+.nav-tabs .nav-link {
+    color: rgba(25, 154, 229, 0.40) !important;
+    font-weight: bold;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #58c1ee !important;
+}
+
+/*
+    TABLAS
+*/
+
+.table {
+    width: 100% !important;
+}
+
+.line-height {
+    line-height: 1.5vw;
+}
+
+
+
+
+/*
+    DATEPICKER
+*/
+
+.datepicker-days td, .datepicker-days th {
+    width: 40px !important;
+    height: 30px !important;
+}
+
+.datepicker-months td, .datepicker-months th,
+.datepicker-years td, .datepicker-years th, .datepicker-decades td, .datepicker-decades th,
+.datepicker-centuries td, .datepicker-centuries th {
+    width: 95px !important;
+    height: 40px !important;
+}
+
+
+/*
+    MODAL
+*/
+
+.modal-custom {
+    padding-right: 15% !important;
+}
+
+.modal-title {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.modal-header {
+    background-color: #039be5 !important;
+}
+
+.line-att {
+    border-bottom: 1px solid #808080;
+    margin-bottom: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield !important;
+}
+
+@media (min-width: 1800px) {
+    .modal-xl {
+        max-width: 1350px !important;
+        left: 1vw;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1999px) {
+        .modal-xl {
+            width: 1200px !important;
+            left: 1vw;
+        }
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .modal-xl {
+        max-width: 1100px !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+    .modal-dialog {
+        max-width: 800px !important;
+        margin: 1.75rem auto;
+    }
+}
+
+/*#StudentsBulk {
+    max-height: calc(90vh - 210px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}*/
+
+/* 
+    GRADES
+*/
+
+
+.color-total {
+    background-color: #039be5;
+    color: white !important;
+    border-color: #039be5;
+}
+
+/*
+    BULK EXCEL STUDENTs
+*/
+
+.upload-badge {
+    padding: 8px 16px 8px 16px !important;
+}
+
+.cel {
+    background-color: #58c1ee !important;
+}
+
+.img-ico {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/*
+    SWAL
+*/
+.swal-text {
+    text-align: center !important;
+    line-height: 25px !important;
+}
+
+/*
+    DATATABLE
+*/
+
+#classes-table > tbody > td {
+    vertical-align: middle !important;
+}
+
+#StudentsBulkTable_wrapper {
+    width: 100% !important;
+}
+
+/* CLASES */
+#classes-table_wrapper > .row:nth-child(2) {
+    overflow-y: auto !important;
+    max-height: 51vh !important;
+    padding-right: 5px;
+}
+
+#classes-table_wrapper > .row:nth-child(1) {
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+
+#classes-table_wrapper > .row:nth-child(3) {
+    margin-top: 10px;
+}
+
+#classes-table_wrapper > .row:nth-child(2)::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#classes-table_wrapper > .row:nth-child(2)::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#classes-table_wrapper > .row:nth-child(2)::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d1d0d0;
+}
+
+/* ATTRITIONS */
+#id-table-attritions_wrapper > .row:nth-child(2) {
+    overflow-y: auto !important;
+    max-height: 50vh !important;
+    padding-right: 5px;
+}
+
+#id-table-attritions_wrapper > .row:nth-child(1) {
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+
+#id-table-attritions_wrapper > .row:nth-child(3) {
+    margin-top: 10px;
+}
+
+#id-table-attritions_wrapper > .row:nth-child(2)::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#id-table-attritions_wrapper > .row:nth-child(2)::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#id-table-attritions_wrapper > .row:nth-child(2)::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d1d0d0;
+}
+
+/* Bulk Students */
+
+#StudentsBulkTable_wrapper > .row:nth-child(2)::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#StudentsBulkTable_wrapper > .row:nth-child(2)::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#StudentsBulkTable_wrapper > .row:nth-child(2)::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d1d0d0;
+}
+
+#StudentsBulkTable_wrapper > .row:nth-child(2) {
+    overflow-y: auto !important;
+    max-height: 33vh !important;
+    padding-right: 5px;
+}
+
+#StudentsBulkTable_wrapper > .row:nth-child(1) {
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+
+#StudentsBulkTable_wrapper > .row:nth-child(3) {
+    margin-top: 10px;
+}
+
+
+/* Attendance */
+#id-table-attendance_wrapper > .row:nth-child(2)::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#id-table-attendance_wrapper > .row:nth-child(2)::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#id-table-attendance_wrapper > .row:nth-child(2)::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d1d0d0;
+}
+
+#id-table-attendance_wrapper > .row:nth-child(2) {
+    overflow-y: auto !important;
+    max-height: 46vh !important;
+    padding-right: 5px;
+}
+
+#id-table-attendance_wrapper > .row:nth-child(1) {
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+
+#id-table-attendance_wrapper > .row:nth-child(3) {
+    margin-top: 10px;
+}
+
+
+/* Scroll Comments */
+
+#drop-commets::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#drop-commets::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#drop-commets::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #00c0ef;
+}
+
+#drop-commets {
+    overflow-y: auto !important;
+    /*max-height: 23vh !important;*/
+    max-height: 17vh !important;
+    padding-right: 5px;
+    width: 200px;
+    border-color: #00c0ef !important;
+    /*transform: translate3d(37px, -133px, 0px) !important;*/
+    transform: translate3d(40px, -70px, 0px) !important;
+    /*top: 48px;
+    left: 3px;*/
+}
+
+
+
+/* INPUT MINUTES LATE */
+
+.input-min-late {
+    background-color: #999 !important;
+    border-color: #999 !important;
+}
+
+    .input-min-late:hover,
+    .input-min-late:active,
+    .input-min-late.hover {
+        background-color: #999 !important;
+        border-color: #999 !important;
+    }
+
+    .input-min-late:focus, .input-min-late.focus {
+        box-shadow: 0 0 0 0 #999 !important;
+    }
+
+    .input-min-late.disabled, .input-min-late:disabled {
+        color: #fff;
+        background-color: #999 !important;
+        border-color: #999 !important;
+    }
+
+    .input-min-late:not(:disabled):not(.disabled):active, .input-min-late:not(:disabled):not(.disabled).active,
+    .show > .input-min-late.dropdown-toggle {
+        color: #999 !important;
+        background-color: #999 !important;
+        border-color: #999 !important;
+    }
+
+        .input-min-late:not(:disabled):not(.disabled):active:focus, .input-min-late:not(:disabled):not(.disabled).active:focus,
+        .show > .input-min-late.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
+        }
+
+
+
+
+.ishidden {
+    display: none;
+}
+
+.nohidden {
+    display: block;
+}
+
+/* Input File*/
+
+.file-zoom-content > embed {
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    min-height: 50vh;
+}
+
+.kv-file-content > embed {
+    width: 100%;
+}
+
+#kvFileinputModal {
+    top: 10vh !important;
+    left: 30vw !important;
+    width: 40vw !important;
+}
+
+.list-group-item {
+    padding: 0.4rem 1.25rem !important;
+}

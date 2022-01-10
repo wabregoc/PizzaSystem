@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Catalogo de Pizzas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Session["IdUsuario"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+@section Styles{
+    <link href="@Url.Content("~/Scripts/DataTables/datatables.min.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="card no-border">
+    <div class="card-header-custom">
+        <h3 class="text-primary no-margin">Catalogo de Pizzas</h3>
+    </div>
+</div>
+<div class="card no-border m-card card-margin">
+    <div class="card-body">
+        <div class="col-md-7 mb-4 mt-1" style="padding-left: 0px !important;">
+            <div class="float-left pb-4" style="padding-left:0px;">
+                <button class="btn btn-success mr-3" id="btn-add-catalogo-pizza"><i class="fa fa-plus"></i> Agregar catalogo</button>
+            </div>
+        </div>
+        <div class="table-responsive m-card" id="div-catalogos" style="padding-bottom: 40px;">
+            <table class="table table table-hover table-sm table-bordered mt-4" id="catalogo-pizza-table">
+                <thead>
+                    <tr>
+                        <th>Nombre Producto</th>
+                        <th>Cantidad Porciones</th>
+                        <th>Descripcion Producto</th>
+                        <th>Precio Unidad</th>
+                        <th>Tamaño</th>
+                        <th>Fecha Creado</th>
+                        <th style="text-align:center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="div-add-edit-catalogo-pizza">
+</div>
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/DataTables/datatables.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Custom/CatalogoPizza.js")"></script>
+    <script>
+        var urlGetCatalogoPizza = '@Url.Action("GetCatalogoPizza", "CatalogoPizzas")';
+        var urlCatalogoPizzaForm = '@Url.Action("CatalogoPizzaForm", "CatalogoPizzas")';
+        var urlSaveCatalogoPizza = '@Url.Action("SaveCatalogoPizza", "CatalogoPizzas")';
+        var urlEditCatalogoPizza = '@Url.Action("EditCatalogoPizza", "CatalogoPizzas")';
+        var urlDeleteCatalogoPizza = '@Url.Action("DeleteCatalogoPizza", "CatalogoPizzas")';
+    </script>
+}

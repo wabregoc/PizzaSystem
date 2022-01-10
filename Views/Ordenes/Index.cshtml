@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Ordenes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Session["IdUsuario"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<div class="card no-border">
+    <div class="card-header-custom">
+        <h3 class="text-primary no-margin">Ordenes de Pizza</h3>
+    </div>
+</div>
