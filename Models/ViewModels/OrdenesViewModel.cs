@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace PizzaSystem.Models
+namespace PizzaSystem.Models.ViewModels
 {
-    [Table("OrdenPizza")]
-    public class OrdenPizza
+    public class OrdenesViewModel
     {
-        public OrdenPizza()
-        {
-
-        }
-
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int IdOrdenPizza { get; set; }
         public string NumeroOrden { get; set; }
         public string NombreCompletoSolicitante { get; set; }
-        [ForeignKey("IdCatalogoPizzaFK")]
         public int? IdCatalogoPizza { get; set; }
         public int? CantidadOrden { get; set; }
         public DateTime? FechaRealizoOrden { get; set; }
@@ -32,7 +21,8 @@ namespace PizzaSystem.Models
         public string ModificadoPor { get; set; }
         public DateTime? FechaModificado { get; set; }
         public bool? Enabled { get; set; }
-
-        public virtual CatalogoPizza IdCatalogoPizzaFK { get; set; }
-    }    
+        public decimal? PrecioUnidad { get; set; }
+        public decimal? Total { get; set; }
+        public List<CatalogoPizza> CatalogoPizzaList { get; set; }
+    }
 }

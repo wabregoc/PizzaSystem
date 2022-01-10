@@ -1,43 +1,40 @@
 ﻿$(document).ready(function () {
-    GetCatalogoPizza();
+    GetOrdenesPizza();
 });
 
-function GetCatalogoPizza() {
-    $('#catalogo-pizza-table').DataTable({
+function GetOrdenesPizza() {
+    $('#orden-pizza-table').DataTable({
         "destroy": true,
         "processing": true,
         "deferRender": true,
         "autoWidth": false,
         "responsive": true,
         "select": true,
-        "order": [[5, "desc"]],
+        "order": [[6, "desc"]],
         "ajax": {
-            "url": urlGetCatalogoPizza,
+            "url": urlGetOrdenesPizza,
             "cache": false,
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "NombreProducto", "name": "Nombre Producto" },
-            { "data": "CantidadPorciones", "name": "Cantidad Porciones" },
-            { "data": "DescripcionProducto", "name": "Descripcion del Producto" },
-            { "data": "PrecioUnidad", "name": "Precio Por Unidad" },
-            { "data": "Tamano", "name": "Tamaño" },
-            {
-                "data": "FechaCreado", render: function (d) {
-                    return (d == null) ? " " : moment(d).format("MM/DD/YYYY h:mm:ss A");
-                }
-            },
+            { "data": "NumeroOrden", "name": "No Orden" },
+            { "data": "NombreCompletoSolicitante", "name": "Nombre del solicitante" },
+            { "data": "CantidadOrden", "name": "Cantidad" },
+            { "data": "PrecioUnidad", "name": "Precio Unitario" },
+            { "data": "Total", "name": "Total" },
+            { "data": "OrdenCreadaPor", "name": "Usuario que ingreso la orden" },
+            { "data": "FechaCreado", "name": "FechaCreado" },
             {
                 "data": "Actions", "width": "8%", render: function (data, type, row) {
-                    return '<button class="btn btn-sm btn-primary m-2"  id="btn-edit-catalogo-pizza" data-toggle="tooltip" data-placement="top" title="Edit" data-id="' + row.IdCatalogoPizza + '"><i class="fas fa-edit"></i></button>' +
-                        '<button class="btn btn-sm btn-danger m-2" data-toggle="tooltip" data-placement="top" title="Delete" id="delete-catalogo-pizza" data-id="' + row.IdCatalogoPizza + '"><i class="fa fa-trash-alt "></i></button>';
+                    return '<button class="btn btn-sm btn-primary m-2"  id="btn-edit-orden-pizza" data-toggle="tooltip" data-placement="top" title="Edit" data-id="' + row.IdOrdenPizza + '"><i class="fas fa-edit"></i></button>' +
+                        '<button class="btn btn-sm btn-danger m-2" data-toggle="tooltip" data-placement="top" title="Delete" id="delete-orden-pizza" data-id="' + row.IdOrdenPizza + '"><i class="fa fa-trash-alt "></i></button>';
                 }
             }
         ],
         "columnDefs": [
             {
-                "targets": [0, 1, 3],
+                "targets": [0, 2, 3, 4],
                 "className": "text-center"
             },
             {
@@ -47,21 +44,35 @@ function GetCatalogoPizza() {
             {
                 "targets": [0, 1, 2, 3, 4, 5],
                 "className": "line-height"
+            },
+            {
+                "targets": [6],
+                "visible": false,
+                "searchable": false
             }
         ]
     });
 }
 
-$(document).on("click", "#btn-add-catalogo-pizza", function () {
+$(document).on("click", "#btn-add-orden-pizza", function () {
     loadShow();
     $.ajax({
-        url: urlCatalogoPizzaForm,
+        url: urlOrdenesForm,
         type: 'POST',
         cache: false,
         success: function (data) {
-            $('#div-add-edit-catalogo-pizza').html('');
-            $('#div-add-edit-catalogo-pizza').html(data);
-            $('#modal-add-catalogo-pizza').modal('show');
+            $('#div-add-edit-orden-pizza').html('');
+            $('#div-add-edit-orden-pizza').html(data);
+            $('#modal-add-orden-pizza').modal('show');
+            $('#IdCatalogoPizza').select2({
+                theme: 'bootstrap4',
+                placeholder: "Selecciones una pizza",
+                width: '100%'
+            });
+            $('#FechaRealizoOrden').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
             loadHide();
         },
         error: function () {
@@ -71,17 +82,26 @@ $(document).on("click", "#btn-add-catalogo-pizza", function () {
     });
 });
 
-$(document).on("click", "#btn-edit-catalogo-pizza", function () {
+$(document).on("click", "#btn-edit-orden-pizza", function () {
     loadShow();
     $.ajax({
-        url: urlCatalogoPizzaForm,
+        url: urlOrdenesForm,
         type: 'POST',
         cache: false,
         data: { id: $(this).attr("data-id") },
         success: function (data) {
-            $('#div-add-edit-catalogo-pizza').html('');
-            $('#div-add-edit-catalogo-pizza').html(data);
-            $('#modal-edit-catalogo-pizza').modal('show');
+            $('#div-add-edit-orden-pizza').html('');
+            $('#div-add-edit-orden-pizza').html(data);
+            $('#modal-edit-orden-pizza').modal('show');
+            $('#IdCatalogoPizza').select2({
+                theme: 'bootstrap4',
+                placeholder: "Selecciones una pizza",
+                width: '100%'
+            });
+            $('#FechaRealizoOrden').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            })
             loadHide();
         },
         error: function () {
@@ -91,12 +111,12 @@ $(document).on("click", "#btn-edit-catalogo-pizza", function () {
     });
 });
 
-$(document).on('submit', '#form-add-catalogo-pizza', function (e) {
+$(document).on('submit', '#form-add-orden-pizza', function (e) {
     e.preventDefault();
-    var FormData = $("#form-add-catalogo-pizza").serialize();
+    var FormData = $("#form-add-orden-pizza").serialize();
     loadShow();
     $.ajax({
-        url: urlSaveCatalogoPizza,
+        url: urlSaveOrdenesPizza,
         type: 'POST',
         cache: false,
         data: FormData,
@@ -104,8 +124,8 @@ $(document).on('submit', '#form-add-catalogo-pizza', function (e) {
             loadHide();
             if (data.e == 1) {
                 swal('', data.msj, 'success');
-                $('#modal-add-catalogo-pizza').modal('hide');
-                GetCatalogoPizza();
+                $('#modal-add-orden-pizza').modal('hide');
+                GetOrdenesPizza();
             }
             else {
                 swal('Error', 'Something went wrong with the connection', 'error');
@@ -118,12 +138,12 @@ $(document).on('submit', '#form-add-catalogo-pizza', function (e) {
     });
 });
 
-$(document).on('submit', '#form-edit-catalogo-pizza', function (e) {
+$(document).on('submit', '#form-edit-orden-pizza', function (e) {
     e.preventDefault();
     loadShow();
-    var FormData = $("#form-edit-catalogo-pizza").serialize();
+    var FormData = $("#form-edit-orden-pizza").serialize();
     $.ajax({
-        url: urlEditCatalogoPizza,
+        url: urlEditOrdenesPizza,
         type: 'POST',
         cache: false,
         data: FormData,
@@ -131,8 +151,8 @@ $(document).on('submit', '#form-edit-catalogo-pizza', function (e) {
             loadHide();
             if (data.e == 1) {
                 swal('', data.msj, 'success');
-                $('#modal-edit-catalogo-pizza').modal('hide');
-                GetCatalogoPizza();
+                $('#modal-edit-orden-pizza').modal('hide');
+                GetOrdenesPizza();
             }
             else {
                 swal('Error', 'Something went wrong with the connection', 'error');
@@ -146,7 +166,7 @@ $(document).on('submit', '#form-edit-catalogo-pizza', function (e) {
     });
 });
 
-$(document).on('click', '#delete-catalogo-pizza', function () {
+$(document).on('click', '#delete-orden-pizza', function () {
     var IdShift = $(this).attr('data-id');
     swal({
         title: "Are you sure?",
@@ -158,7 +178,7 @@ $(document).on('click', '#delete-catalogo-pizza', function () {
             if (willDelete) {
                 loadShow();
                 $.ajax({
-                    url: urlDeleteCatalogoPizza,
+                    url: urlDeleteOrdenesPizza,
                     type: 'POST',
                     cache: false,
                     data: { id: IdShift },
@@ -166,7 +186,7 @@ $(document).on('click', '#delete-catalogo-pizza', function () {
                         loadHide();
                         if (data.e == 1) {
                             swal('', data.msj, 'success');
-                            GetCatalogoPizza();
+                            GetOrdenesPizza();
                         }
                         else {
                             swal('Error', 'Something went wrong with the connection', 'error');
@@ -180,5 +200,6 @@ $(document).on('click', '#delete-catalogo-pizza', function () {
             }
         });
 });
+
 
 

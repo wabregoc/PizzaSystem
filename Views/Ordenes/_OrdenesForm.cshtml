@@ -1,0 +1,178 @@
+﻿@model PizzaSystem.Models.ViewModels.OrdenesViewModel
+
+@if (Model.IdOrdenPizza == 0)
+{
+    <div class="modal fade" id="modal-add-orden-pizza" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title card-title" id="exampleModalLabel" style="color:white">Agregar Orden de Pizza</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-add-orden-pizza" enctype="multipart/form-data" autocomplete="off">
+                    <div class="modal-body modal-custom">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Numero de Orden:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NumeroOrden" id="NumeroOrden" placeholder="Numero de Orden" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Nombre Completo del Solicitante:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NombreCompletoSolicitante" id="NombreCompletoSolicitante" placeholder="Nombre Completo del Solicitante" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Tipo de pizza:</label>
+                            <div class="col-sm-9">
+                                <select id="IdCatalogoPizza" name="IdCatalogoPizza" class="form-control" required>
+                                    <option value="" selected disabled>Select a Segment Type</option>
+                                    @foreach (var item in Model.CatalogoPizzaList)
+                                    {
+                                        <option value="@item.IdCatalogoPizza">@item.NombreProducto - $@item.PrecioUnidad</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Cantidad de la orden:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" min="1" name="CantidadOrden" id="CantidadOrden" placeholder="Cantidad de la orden" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="input-group mb-2 mr-sm-2">
+                                <label class="col-sm-3 col-form-label text-right">Fecha en que realizo orden:</label>
+                                <input type="text" class="form-control" id="FechaRealizoOrden" name="FechaRealizoOrden" placeholder="Pick a start date" style="margin-left: 18px;" required>
+                                <div class="input-group-prepend" style="margin-right: 5px; margin-bottom: 19px">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Dirección de envío:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="DireccionEnvio" id="DireccionEnvio" placeholder="Dirección de envío" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Comentarios:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="Comentarios" id="Comentarios" placeholder="Comentarios" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3 text-right">¿Orden entregada?:</div>
+                            <div class="col-sm-9">
+                                <div class="form-check">
+                                    @Html.CheckBox("OrdenEntregada", new { @class = "form-check-input" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="modal fade" id="modal-edit-orden-pizza" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title card-title" id="exampleModalLabel" style="color:white">Editar Orden de Pizza</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-edit-orden-pizza" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" name="IdOrdenPizza" value="@Model.IdOrdenPizza" />
+                    <div class="modal-body modal-custom">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Numero de Orden:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NumeroOrden" id="NumeroOrden" placeholder="Numero de Orden" value="@Model.NumeroOrden" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Nombre Completo del Solicitante:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="NombreCompletoSolicitante" id="NombreCompletoSolicitante" value="@Model.NombreCompletoSolicitante" placeholder="Nombre Completo del Solicitante" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Tipo de pizza:</label>
+                            <div class="col-sm-9">
+                                <select id="IdCatalogoPizza" name="IdCatalogoPizza" class="form-control" required>
+                                    <option value="" selected disabled>Select a Segment Type</option>
+                                    @foreach (var item in Model.CatalogoPizzaList)
+                                    {
+                                        if (Model.IdCatalogoPizza == item.IdCatalogoPizza)
+                                        {
+                                            <option value="@item.IdCatalogoPizza" selected>@item.NombreProducto - $@item.PrecioUnidad</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.IdCatalogoPizza">@item.NombreProducto - $@item.PrecioUnidad</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Cantidad de la orden:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" min="1" name="CantidadOrden" id="CantidadOrden" placeholder="Cantidad de la orden" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="@Model.CantidadOrden" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="input-group mb-2 mr-sm-2">
+                                <label class="col-sm-3 col-form-label text-right">Fecha en que realizo orden:</label>
+                                <input type="text" class="form-control" id="FechaRealizoOrden" name="FechaRealizoOrden" placeholder="Pick a start date" style="margin-left: 18px;" required value="@Model.FechaRealizoOrden.Value.ToString("MM/dd/yyyy")">
+                                <div class="input-group-prepend" style="margin-right: 5px; margin-bottom: 19px">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Dirección de envío:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="DireccionEnvio" id="DireccionEnvio" placeholder="Dirección de envío" required>@Model.DireccionEnvio</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Comentarios:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="Comentarios" id="Comentarios" placeholder="Comentarios" required>@Model.Comentarios</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3 text-right">¿Orden entregada?:</div>
+                            <div class="col-sm-9">
+                                <div class="form-check">
+                                    @Html.CheckBox("OrdenEntregada", new { @class = "form-check-input" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

@@ -8,8 +8,54 @@
     }
 }
 
+@section Styles{
+    <link href="@Url.Content("~/Scripts/DataTables/datatables.min.css")" rel="stylesheet" type="text/css" />
+}
+
 <div class="card no-border">
     <div class="card-header-custom">
-        <h3 class="text-primary no-margin">Ordenes de Pizza.</h3>
+        <h3 class="text-primary no-margin">Ordenes de Pizza</h3>
     </div>
 </div>
+<div class="card no-border m-card card-margin">
+    <div class="card-body">
+        <div class="col-md-7 mb-4 mt-1" style="padding-left: 0px !important;">
+            <div class="float-left pb-4" style="padding-left:0px;">
+                <button class="btn btn-success mr-3" id="btn-add-orden-pizza"><i class="fa fa-plus"></i> Agregar nueva orden</button>
+            </div>
+        </div>
+        <div class="table-responsive m-card" id="div-orden" style="padding-bottom: 40px;">
+            <table class="table table table-hover table-sm table-bordered mt-4" id="orden-pizza-table">
+                <thead>
+                    <tr>
+                        <th>No Orden</th>
+                        <th>Nombre del solicitante</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                        <th>Usuario que ingreso la orden</th>
+                        <th>FechaCreado</th>
+                        <th style="text-align:center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="div-add-edit-orden-pizza">
+</div>
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/DataTables/datatables.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Custom/Ordenes.js")"></script>
+    <script>
+        var urlGetOrdenesPizza = '@Url.Action("GetOrdenesPizza", "Ordenes")';
+        var urlOrdenesForm = '@Url.Action("OrdenesForm", "Ordenes")';
+        var urlSaveOrdenesPizza = '@Url.Action("SaveOrdenesPizza", "Ordenes")';
+        var urlEditOrdenesPizza = '@Url.Action("EditOrdenesPizza", "Ordenes")';
+        var urlDeleteOrdenesPizza = '@Url.Action("DeleteOrdenesPizza", "Ordenes")';
+    </script>
+}
